@@ -17,8 +17,13 @@
 
 PreCommit:
  RuboCop:
-   enabled: true
-   on_warn: fail # Treat all warnings as failures
+    enabled: true
+    command: ["bundle", "exec", "rubocop", "--auto-correct", "--force-exclusion"]
+    require_files: []
+    on_warn: fail
+    # Custom hook to check if files were modified after auto-correction
+    check_files: true
+    fail_msg: "There are RuboCop fixes pending. Please commit the changes after auto-correcting."
    
 #
 #  TrailingWhitespace:
