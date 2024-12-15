@@ -1,8 +1,25 @@
-<div data-controller="flash">
-  <% flash.each do |type, message| %>
-    <div class="flash <%= type %>" data-flash-target="flash">
-      <p><%= message %></p>
-      <button data-action="click->flash#dismiss">✖</button>
+<div id="flash-messages" class="fixed top-0 right-0 m-4 flex flex-col space-y-2 z-50">
+  <% flash.each do |key, message| %>
+    <div
+      data-controller="flash"
+      data-flash-type="<%= key %>"
+      class="flash-message bg-transparent rounded-lg p-4 transition-opacity duration-300 w-[20vw] opacity-100 relative" 
+      role="alert"
+      data-flash-visible="true"
+    >
+      <!-- Close button at the top-right corner of the flash message -->
+      <button
+        data-action="click->flash#dismiss"
+        class="absolute top-2 right-2 p-2 text-white bg-transparent border-0 cursor-pointer"
+        aria-label="Dismiss"
+      >
+        &times;
+      </button>
+
+      <!-- Flash message text below the close button -->
+      <span class="font-medium text-white">
+        <%= message %>
+      </span>
     </div>
   <% end %>
 </div>

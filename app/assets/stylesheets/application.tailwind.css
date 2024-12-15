@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styles for Flash Messages */
+.flash-message[data-flash-type="notice"] {
+  @apply bg-blue-500 text-white;
+}
+
+.flash-message[data-flash-type="success"] {
+  @apply bg-green-500 text-white;
+}
+
+.flash-message[data-flash-type="alert"] {
+  @apply bg-red-500 text-white;
+}

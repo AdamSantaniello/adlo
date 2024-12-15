@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    flash["notice"] = "Hello Adlo!"
+    flash["notice"] = "Welcome to Adlo!"
   end
 end
